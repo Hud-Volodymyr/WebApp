@@ -1,13 +1,17 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 const models = require('../models');
-// eslint-disable-next-line no-unused-vars
-exports.getLanding = function(req, res, next) {
+exports.getLanding = (req, res, next) =>
   res.render('landing', { title: 'Express' });
-};
-// eslint-disable-next-line no-unused-vars
-exports.submitLead = function(req, res, next) {
-  return models.Lead.create({
-    email: req.body.lead_email,
-  // eslint-disable-next-line no-unused-vars
-  }).then(lead => res.redirect('/'));
-};
+
+exports.submitLead = (req, res, next) => models.Lead.create({
+  email: req.body.lead_email,
+}).then(lead => res.redirect('/leads'));
+
+exports.showLeads = (req, res, next) =>
+  models.Lead.findAll().then(leads => {
+    res.render('landing', {
+      title: 'Express',
+      leads,
+    });
+  });
