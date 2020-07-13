@@ -15,3 +15,12 @@ exports.showLeads = (req, res, next) =>
       leads,
     });
   });
+
+exports.showLead = (req, res, next) =>
+  models.Lead.findOne({
+    where: {
+      id: req.params.leadId
+    }
+  }).then(lead => {
+    res.render('lead', { lead });
+  });
