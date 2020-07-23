@@ -53,3 +53,12 @@ exports.deleteLead = (req, res, next) =>
   }).then(result => {
     res.redirect('/leads');
   });
+
+exports.deleteLeadJson = (req, res, next) =>
+  models.Lead.destroy({
+    where: {
+      id: req.params.leadId
+    }
+  }).then(result => {
+    res.send({ message: 'Success' });
+  });
