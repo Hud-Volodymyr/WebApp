@@ -10,7 +10,7 @@ exports.submitLead = (req, res, next) => models.Lead.create({
 
 exports.showLeads = (req, res, next) =>
   models.Lead.findAll().then(leads => {
-    res.render('landing', {
+    res.render('lead/leads', {
       title: 'Express',
       leads,
     });
@@ -22,7 +22,7 @@ exports.showLead = (req, res, next) =>
       id: req.params.leadId
     }
   }).then(lead => {
-    res.render('lead', { lead });
+    res.render('lead/lead', { lead });
   });
 
 exports.showEditLead = (req, res, next) =>
