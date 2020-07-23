@@ -1,11 +1,15 @@
-extends layout
+doctype html
+html(len='en')
+  include common/header.pug
+  +head('Starter MVP')
+  body
+    h1 content
+    p 
+      span #{lead.email}
 
-block content
-  h1 content
-  p 
-    span #{lead.email}
+      a(href="/lead/" + lead.id + "/edit") Edit
     
-    a(href="/lead/" + lead.id + "/edit") Edit
-    
-    form(action="/lead/" + lead.id + "/delete", method="POST")
-      button(type="submit") Delete
+      form(action="/lead/" + lead.id + "/delete", method="POST")
+        button(type="submit") Delete
+    include common/footer.pug
+    +footer()
