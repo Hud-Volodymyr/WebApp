@@ -14,9 +14,9 @@ html(len='en')
             p.lead.mb-4 Learn how to launch a landing page and start collecting sales leads.
             form(action="/", method="POST")
               .input-group.mb-3
-                input(name="lead_email", type="email", placeholder="Enter your email address").form-control
+                input(name="leadEmail", type="email", placeholder="Enter your email address").form-control
                 .input-group-append
                   button(type="submit").btn.btn-primary Get Started
     include common/footer.pug
     +footer()
-    script(src='/javascripts/leads.js')
+  
